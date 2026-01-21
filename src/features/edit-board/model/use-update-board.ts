@@ -12,7 +12,7 @@ export function useUpdateBoard(postId: number, callbacks?: UseMutationCallback) 
       updateBoard(postId, request, file),
 
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.board.lists() });
+      await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.board.lists(), refetchType: "all" });
       await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.board.detail(postId) });
 
       if (callbacks?.onSuccess) {
