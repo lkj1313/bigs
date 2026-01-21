@@ -1,9 +1,6 @@
 
 
-import type {
-  BoardCategoryKey,
-  BoardCategoryResponse,
-} from "@/features/board";
+import type { BoardCategoryKey, BoardCategoryResponse } from "../model/types";
 
 /**
  * key -> label 변환

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/shared/ui/button";
-import { useIsLoggedIn, useAuthActions, useUser } from "@/features/authentication";
+import { useIsLoggedIn, useAuthActions, useUser } from "@/entities/session";
 import { toast } from "sonner";
 export const Header = () => {
   const { clearAuth } = useAuthActions();

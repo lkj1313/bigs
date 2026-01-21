@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useBoardCategories, useDeleteBoard, usePostDetail } from "@/features/board";
+import { usePostDetail } from "@/features/view-board-detail";
+import { useDeleteBoard } from "@/features/delete-board";
+import { useBoardCategories } from "@/entities/board";
 import { Button, FullScreenLoader } from "@/shared/ui";
 import { ChevronLeft, Calendar, User, Edit2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
@@ -10,7 +12,7 @@ export const BoardDetailPage = () => {
 
   const { mutate: deleteBoard, isPending: isDeletePending } = useDeleteBoard({
     onSuccess: () => {
-      navigate("/boards");
+      navigate("/boards", { replace: true });
       toast.success("게시글이 삭제되었습니다.");
     },
     onError: (error: Error) => {

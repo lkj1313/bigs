@@ -7,3 +7,4 @@ export * from "./table";
 export * from "./textarea";
 export * from "./select";
 export * from "./FullScreenLoader";
+export * from "./AuthFormLayout";

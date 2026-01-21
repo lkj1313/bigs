@@ -1,5 +1,5 @@
 import axios, { type InternalAxiosRequestConfig, type AxiosResponse, type AxiosError } from "axios";
-import { useAuthStore } from "@/features/authentication";
+import { useAuthStore } from "@/entities/session";
 
 // 1. 대기열 및 요청 설정을 위한 타입 정의
 interface FailedRequest {
