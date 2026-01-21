@@ -15,22 +15,22 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-wide flex h-16 mx-auto items-center justify-between">
 
         <div className="flex items-center gap-2">
-          <Link to="/" className="text-xl font-bold tracking-tighter text-primary">
+          <Link to="/" className="text-lg sm:text-xl font-bold tracking-tighter text-primary">
             BIGS BOARD
           </Link>
         </div>
 
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-2 sm:gap-4">
           {isLoggedIn ? (
             <>
               {user && (
-                <div className="flex flex-col items-end text-sm mr-2 leading-tight">
+                <div className="flex flex-col items-end text-sm mr-1 sm:mr-2 leading-tight">
                   <span className="font-bold text-foreground">{user.name}님</span>
-                  <span className="text-[11px] text-muted-foreground">{user.username}</span>
+                  <span className="hidden sm:inline text-[11px] text-muted-foreground">{user.username}</span>
                 </div>
               )}
 

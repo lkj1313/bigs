@@ -69,9 +69,9 @@
 
 @layer components {
   .container {
-    @apply max-w-[896px] w-full mx-auto px-6 !important;
+    @apply max-w-[896px] w-full mx-auto px-4 sm:px-6 !important;
   }
   .container-wide {
-    @apply max-w-[1280px] w-full mx-auto px-6;
+    @apply max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
