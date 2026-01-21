@@ -46,28 +46,28 @@ export const BoardForm = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto">
       <div className="bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden">
-        <div className="p-8 sm:p-16">
-          <div className="flex justify-between items-center mb-12 pb-6 border-b border-slate-50">
+        <div className="p-5 sm:p-10 lg:p-16">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-10 sm:mb-12 pb-6 border-b border-slate-50">
             <Button
               type="button"
               variant="ghost"
-              onClick={() => navigate("/boards")}
+              onClick={() => (isEdit ? navigate(-1) : navigate("/boards"))}
               className="group gap-1 text-slate-500 hover:text-slate-900 -ml-2"
             >
               <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
-              목록으로
+              {isEdit ? "뒤로가기" : "목록으로"}
             </Button>
 
-            <div className="flex items-center gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-2">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => navigate(-1)}
-                className="h-9 border-slate-200 text-slate-500"
+                className="h-10 sm:h-9 border-slate-200 text-slate-500"
               >
                 취소
               </Button>
-              <Button type="submit" disabled={isPending} className="h-9 min-w-[100px] font-semibold">
+              <Button type="submit" disabled={isPending} className="h-10 sm:h-9 min-w-[100px] font-semibold">
                 {isPending ? "저장 중..." : isEdit ? "수정하기" : "등록하기"}
               </Button>
             </div>
@@ -79,7 +79,7 @@ export const BoardForm = ({
                 onValueChange={(val) => setValue("category", val)}
                 defaultValue={initialValues?.category || "FREE"}
               >
-                <SelectTrigger className="w-fit h-9 bg-slate-50 border-slate-200 text-slate-700 font-medium px-4 rounded-full focus:ring-0">
+                <SelectTrigger className="w-full sm:w-fit h-10 sm:h-9 bg-slate-50 border-slate-200 text-slate-700 font-medium px-4 rounded-full focus:ring-0">
                   <SelectValue placeholder="카테고리" />
                 </SelectTrigger>
 
@@ -95,7 +95,7 @@ export const BoardForm = ({
               <Input
                 {...register("title", { required: "제목은 필수입니다." })}
                 placeholder="제목을 입력하세요"
-                className="text-4xl sm:text-5xl h-auto border-none shadow-none font-bold placeholder:text-slate-200 focus-visible:ring-0 px-0 tracking-tight"
+                className="text-2xl sm:text-4xl lg:text-5xl h-auto border-none shadow-none font-bold placeholder:text-slate-200 focus-visible:ring-0 px-0 tracking-tight"
               />
             </div>
 
@@ -104,7 +104,7 @@ export const BoardForm = ({
             <Textarea
               {...register("content", { required: "내용은 필수입니다." })}
               placeholder="어떤 이야기를 공유하고 싶으신가요?"
-              className="min-h-[450px] border-none shadow-none text-xl leading-loose focus-visible:ring-0 px-0 resize-none placeholder:text-slate-200"
+              className="min-h-[320px] sm:min-h-[450px] border-none shadow-none text-base sm:text-xl leading-loose focus-visible:ring-0 px-0 resize-none placeholder:text-slate-200"
             />
 
             <div className="pt-10 border-t border-slate-50">

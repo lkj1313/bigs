@@ -36,13 +36,13 @@ export const BoardDetailPage = () => {
 
 
   return (
-    <div className="container  ">
+    <div className="container">
       {/* 메인 컨텐츠 카드 */}
       <div className="bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden">
-        <div className="p-8 sm:p-16">
+        <div className="p-5 sm:p-10 lg:p-16">
 
           {/* 카드 내부 최상단 액션 바 */}
-          <div className="flex justify-between items-center mb-12 pb-6 border-b border-slate-50">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-10 sm:mb-12 pb-6 border-b border-slate-50">
             <Button
               variant="ghost"
               onClick={() => navigate("/boards")}
@@ -52,7 +52,7 @@ export const BoardDetailPage = () => {
               목록으로
             </Button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
               <Button onClick={() => navigate(`/boards/${postId}/edit`)} variant="outline" size="sm" className="h-9 gap-1.5 text-slate-600 border-slate-200 hover:bg-slate-50">
                 <Edit2 className="w-3.5 h-3.5" />
                 수정
@@ -72,7 +72,7 @@ export const BoardDetailPage = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-8 leading-[1.2] tracking-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 leading-[1.2] tracking-tight break-words">
               {post.title}
             </h1>
 
@@ -91,7 +91,7 @@ export const BoardDetailPage = () => {
           </header>
 
           {/* 본문 섹션 */}
-          <article className="min-h-[400px] border-t border-slate-100 pt-12">
+          <article className="min-h-[320px] sm:min-h-[400px] border-t border-slate-100 pt-8 sm:pt-12">
             {post.imageUrl && (
               <div className="mb-12 rounded-2xl overflow-hidden border border-slate-100 bg-slate-50">
                 <img
@@ -102,7 +102,7 @@ export const BoardDetailPage = () => {
               </div>
             )}
 
-            <p className="text-xl text-slate-700 whitespace-pre-wrap leading-[1.8] tracking-normal">
+            <p className="text-base sm:text-xl text-slate-700 whitespace-pre-wrap leading-[1.8] tracking-normal">
               {post.content}
             </p>
           </article>

@@ -26,7 +26,7 @@ export const BoardListPage = () => {
 
   return (
     <div className="container">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <h1 className="text-2xl font-bold">게시판</h1>
         <Button asChild>
           <Link to="/boards/create">글쓰기</Link>
@@ -38,27 +38,27 @@ export const BoardListPage = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[80px] text-center">번호</TableHead>
-              <TableHead className="w-[100px] text-center">카테고리</TableHead>
+              <TableHead className="hidden w-[80px] text-center sm:table-cell">번호</TableHead>
+              <TableHead className="w-[90px] text-center sm:w-[120px]">카테고리</TableHead>
               <TableHead>제목</TableHead>
-              <TableHead className="w-[150px] text-right">등록일</TableHead>
+              <TableHead className="hidden w-[150px] text-right sm:table-cell">등록일</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {data?.content.map((post) => (
               <TableRow key={post.id}>
-                <TableCell className="text-center">{post.id}</TableCell>
+                <TableCell className="hidden text-center sm:table-cell">{post.id}</TableCell>
                 <TableCell className="text-center">
                   <span className="px-2 py-1 rounded-full bg-secondary text-[12px]">
                     {getCategoryLabel(post.category, categories)}
                   </span>
                 </TableCell>
                 <TableCell>
-                  <Link to={`/boards/${post.id}`} className="hover:underline font-medium">
+                  <Link to={`/boards/${post.id}`} className="hover:underline font-medium line-clamp-1">
                     {post.title}
                   </Link>
                 </TableCell>
-                <TableCell className="text-right text-muted-foreground">
+                <TableCell className="hidden text-right text-muted-foreground sm:table-cell">
                   {new Date(post.createdAt).toLocaleDateString()}
                 </TableCell>
               </TableRow>
@@ -68,7 +68,7 @@ export const BoardListPage = () => {
       </div>
 
       {/* 페이지네이션 조작 */}
-      <div className="flex items-center justify-center space-x-2 py-6">
+      <div className="flex flex-wrap items-center justify-center gap-2 py-6">
         <Button
           variant="outline"
           size="sm"
@@ -77,7 +77,7 @@ export const BoardListPage = () => {
         >
           이전
         </Button>
-        <span className="text-sm font-medium">
+        <span className="text-sm font-medium text-center">
           {data?.number ? data.number + 1 : 1} / {data?.totalPages ? data.totalPages : 1}
         </span>
         <Button
