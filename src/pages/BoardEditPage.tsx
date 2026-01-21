@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { usePostDetail, useUpdateBoard, BoardForm } from "@/features/board";
+import { usePostDetail } from "@/features/view-board-detail";
+import { useUpdateBoard } from "@/features/edit-board";
+import { BoardForm } from "@/features/create-board";
 import { toast } from "sonner";
 import { getErrorMessage } from "@/shared/lib";
 import { FullScreenLoader } from "@/shared/ui";

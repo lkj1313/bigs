@@ -1,4 +1,4 @@
-import { useCreateBoard, BoardForm } from "@/features/board"; // BoardForm 불러오기
+import { useCreateBoard, BoardForm } from "@/features/create-board"; // BoardForm 불러오기
 import { toast } from "sonner";
 import { getErrorMessage } from "@/shared/lib";
 import { useNavigate } from "react-router-dom";

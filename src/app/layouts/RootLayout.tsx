@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
-import { useBoardCategories } from "@/features/board/api/use-board";
+import { useBoardCategories } from "@/entities/board";
 
 export const RootLayout = () => {
   useBoardCategories();

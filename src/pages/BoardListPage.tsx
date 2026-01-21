@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   useBoardList,
-} from "@/features/board";
+} from "@/features/view-board-list";
 import {
   Table,
   TableBody,
@@ -14,7 +14,7 @@ import { Button } from "@/shared/ui/button";
 import { Link } from "react-router-dom";
 import { FullScreenLoader } from "@/shared/ui";
 import { getCategoryLabel } from "@/entities/board";
-import { useBoardCategories } from "@/features/board/api/use-board";
+import { useBoardCategories } from "@/entities/board";
 export const BoardListPage = () => {
   const [page, setPage] = useState(0);
   const size = 10;
